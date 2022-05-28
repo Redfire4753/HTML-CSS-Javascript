@@ -1,0 +1,50 @@
+body {
+    background: #b4eeca;
+    font-family: Tahoma, Arial, sans-serif;
+    width: 80%;
+    margin: auto;
+}
+
+h1 {
+    color: blueviolet;
+    font: 32px Garamond, Helvetica, serif;
+}
+.formDiv{   
+    margin: auto;
+    padding: 10px;
+}
+
+table {
+    width: 50%;
+    border-left: 3px solid blueviolet;
+    border-bottom: 3px solid blueviolet;
+}
+
+thead {
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#submit-btn {
+    display: block;
+    margin: 10px 10px 10px 10px;
+}
+#form{
+    margin: auto;
+    padding: 5px;
+}
+#nameDiv{
+    display:inline-block;
+    border-left: 2px solid blueviolet;
+    
+}
+#ratingDiv {
+    display: block;
+    border-left: 2px solid blueviolet;
+    border-bottom: 2px solid blueviolet;
+}
+
