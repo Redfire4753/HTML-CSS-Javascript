@@ -1,0 +1,21 @@
+#lights{
+    display:block;
+}
+body {
+    display: block;
+    align-content: center;
+    justify-content: center;
+    padding: 10px;
+    width: 60%;
+    font-family: sans-serif;
+}
+ul {
+    border: 3px solid red;
+    border-radius: 1em;
+}
+li {
+    padding: 10px;
+}
+img {
+    border-radius: 1em;
+}
