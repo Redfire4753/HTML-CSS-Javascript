@@ -7,6 +7,9 @@ const runGame = () => {
 do {
     console.log(target);
     guessString = prompt('Give me a number between 1 and 100.');
+    if (guessString === null) {
+        return;
+    }
     numTries++;
     guessNumber = +guessString;
     correct = checkGuess(guessNumber,target);
