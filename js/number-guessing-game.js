@@ -14,7 +14,7 @@ do {
     guessNumber = +guessString;
     correct = checkGuess(guessNumber,target);
 } while(!correct);
-    alert(`You\'ve guessed correctly after ${numTries} tries.`)
+    alert(`You've guessed correctly after ${numTries} tries.`)
 }
 
 const checkGuess = (guessNumber,target) => {
