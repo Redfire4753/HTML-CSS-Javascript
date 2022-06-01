@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            Color Guessing Game
+        </title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            button {
+                width: 100px;
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>
+            Color Guessing Game
+        </h1>
+        <button type="button" onclick="runGame()">
+            Start Game
+        </button>
+        <script>
+            let numTries = 0;
+            const COLORS_ARRAY = ['blue', 'cyan', 'gold', 'gray', 'green', 'magenta', 'orange', 'red', 'white', 'yellow'].sort();
+            const runGame = () => {
+                let guess = "";
+                let correct = false;
+                const targetIndex = Math.floor(Math.random() * (COLORS_ARRAY.length));
+                const target = COLORS_ARRAY[targetIndex];
+                console.log(target);
+                do {
+                    guess = prompt(`I am thinking of one of these colors:\n ${COLORS_ARRAY.join(" , ")} \nWhat color am i thinking of?`);
+                    if (guess === null) {
+                        return;
+                    }
+                    numTries++;
+                    correct = checkGuess(guess, target);
+                    
+                } while (!correct)
+                document.body.style.background = guess;
+                alert(`Congrats you guessed correctly after ${numTries} attempts!`);
+            }
+            const checkGuess = (guess,target) => {
+                let correct = false;
+                guess.toLowerCase();
+                target.toLowerCase();
+                if (!COLORS_ARRAY.includes(guess)) {
+                    alert('Your guess is not in our selection of colors. Guess again');
+                    alert(`Try number ${numTries}`);
+                }
+                else if (guess > target) {
+                    alert('The answer is higher up the list.');
+                    alert(`Try number ${numTries}`);
+                }
+                else if (guess < target){
+                    alert('The answer is lower down the list.');
+                    alert(`Try number ${numTries}`);
+                } 
+                else {
+                    correct = true;
+                }
+                return correct;
+            }
+
+        </script>
+    </body>
+</html>
