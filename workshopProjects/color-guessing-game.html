@@ -45,8 +45,7 @@
                         return;
                     }
                     numTries++;
-                    correct = checkGuess(guess, target);
-                    
+                    correct = checkGuess(guess, target); 
                 } while (!correct)
                 document.body.style.background = guess;
                 alert(`Congrats you guessed correctly after ${numTries} attempts!`);
