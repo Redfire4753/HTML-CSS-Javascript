@@ -18,6 +18,17 @@
                 left: 500px;
                 border-left: 1px solid;
             }
+            
+            h1 {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            p {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
         </style>
     </head>
     <body onload="generateFaces()">
@@ -29,17 +40,26 @@
         </p>
         <p id="attempts">
         </p>
+        <div id="button">
+        </div>
         <hr/>
         <div id="leftSide">
         </div>
         <div id="rightSide">
         </div>
         <script>
-            let numberOfFaces = 5;
+            let numberOfFaces = 0;
             let attempts = 0;
             const theRightSide = document.querySelector('#rightSide');
             const theLeftSide = document.querySelector('#leftSide');
+            const attemptCounter = document.querySelector('#attempts');
+            const buttonDiv = document.querySelector('#button');
+            const restartButton = document.createElement('button');
             const generateFaces = () => {
+                if (!numberOfFaces) {
+                    const intialNumberOfFaces = prompt('How many faces would you like?');
+                    numberOfFaces = parseInt(intialNumberOfFaces);
+                }
                 for (let i = 0; i < numberOfFaces; i++) {
                     const face = document.createElement('img');
                     face.src = '../images/smile.png';
@@ -68,10 +88,18 @@
                 generateFaces();
             }
             function gameOver() {
+                const attemptString = document.createTextNode(`Number of attempts ${attempts}`);
+                attemptCounter.appendChild(attemptString);
+                restartButton.addEventListener('click', resetGame, false);
+                restartButton.type = 'button';
+                buttonDiv.appendChild(restartButton);
+                restartButton.innerHTML = 'Reset Game';
                 alert('Game Over!');
                 document.body.removeEventListener('click', gameOver);
                 theLeftSide.lastChild.removeEventListener('click', nextLevel);
-                
+            }
+            function resetGame() {
+                window.location.reload();
             }
             
         </script>
